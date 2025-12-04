@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebSite Shop</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+
 
     <style>
-
         .zoom-bg {
             background-size: 110%;
             animation: zoom-bg 6s ease-in-out infinite alternate;
@@ -26,67 +29,126 @@
     </style>
 </head>
 
-<body class="bg-gray-50">
+<body>
+    <nav class="bg-gray-600 sticky top-0 left-0 right-0 z-20">
+        <div class="flex justify-between items-center px-5 py-4 md:py-6">
 
-    <!-- NAVBAR + HERO -->
-    <nav class="zoom-bg" style="background-image: url('https://i.pinimg.com/736x/a1/7d/49/a17d49cdb0f49aac2d3baafdffb32ded.jpg');">
-        <div class="flex justify-between items-center px-5 py-6">
-
-            <!-- Logo -->
             <div class="flex items-center gap-4">
-                <img class="w-12 rounded-3xl"
+                <img class="w-12 h-12 rounded-3xl object-cover"
                     src="https://static.vecteezy.com/system/resources/previews/007/642/438/non_2x/laptop-electronic-portable-computer-notebook-line-pop-art-potrait-logo-colorful-design-illustration-vector.jpg"
-                    alt="">
-                <h1 class="text-2xl md:text-3xl font-bold text-white">My Computer Shop</h1>
+                    alt="SKS Technology Logo">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">SKS TECHNOLOGY</h1>
             </div>
 
-            <!-- Nav Items -->
-            <ul class="hidden md:flex items-center space-x-8 text-white font-semibold">
-                <a href="#" class="hover:text-blue-300 transition">Contact us</a>
-                <a href="#" class="hover:text-blue-300 transition">Get started</a>
-                <a href="#" class="hover:text-blue-300 transition">About us</a>
-                <a href="#" class="hover:text-blue-300 transition">Portfolio</a>
+            <ul class="hidden md:flex items-center space-x-6 lg:space-x-8 text-white font-semibold">
+                <a href="#" class="hover:text-gray-400 transition duration-300">Home</a>
+                <a href="#" class="hover:text-gray-400 transition duration-300">Products</a>
+                <a href="#" class="hover:text-gray-400 transition duration-300">Contact</a>
+                <a href="#" class="hover:text-gray-400 transition duration-300">About Us</a>
 
                 <a href="#"
-                    class="border-2 border-white rounded-full py-2 px-6 hover:bg-white hover:text-purple-800 transition">
+                    class="border-2 border-white rounded-full py-2 px-6 hover:bg-white hover:text-black transition duration-300">
                     Sign up
                 </a>
             </ul>
 
+            <button id="mobile-menu-button" class="md:hidden text-white p-2 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
         </div>
 
-        <!-- HERO SECTION -->
-        <section class="zoom-bg h-[600px] bg-cover bg-center flex flex-col md:flex-row items-center px-6">
-
-            <!-- Hero Text -->
-            <div class="text-center md:text-left max-w-2xl mx-auto">
-                <h2 class="text-white text-4xl md:text-5xl font-bold mb-4">Computer Shop New Opening</h2>
-                <p class="text-white text-lg md:text-xl mb-6">
-                    Welcome to our new Computer Shop! We offer high-quality gaming PCs, laptops, computer parts,
-                    accessories, and office equipment at affordable prices.
-                </p>
-                <button class="bg-blue-500 text-white px-6 py-3 rounded-xl hover:bg-blue-600">Shop Now</button>
-            </div>
-
-            <!-- Hero Image -->
-            <div class="hidden md:block">
-                <img class="w-[500px] h-auto"
-                    src="https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Computers%20Peripherals/Laptop/Images/318767_0_MNBNCWo3b.png?updatedAt=1760606988474"
-                    alt="">
-            </div>
-
-        </section>
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 pb-4">
+            <ul class="flex flex-col space-y-2 px-5 text-white font-semibold">
+                <a href="#" class="block py-2 px-3 hover:bg-gray-800 rounded transition duration-300">Home</a>
+                <a href="#" class="block py-2 px-3 hover:bg-gray-800 rounded transition duration-300">Products</a>
+                <a href="#" class="block py-2 px-3 hover:bg-gray-800 rounded transition duration-300">Contact</a>
+                <a href="#" class="block py-2 px-3 hover:bg-gray-800 rounded transition duration-300">About Us</a>
+                <a href="#"
+                    class="block text-center mt-2 border-2 border-white rounded-full py-2 hover:bg-white hover:text-black transition duration-300">
+                    Sign up
+                </a>
+            </ul>
+        </div>
     </nav>
+
+
+    <div id="animation-carousel" class="relative w-full z-10 mt-1" data-carousel="slide" data-carousel-interval="3000">
+        <div class="relative h-60 overflow-hidden md:h-[500px]">
+
+            <div class="hidden duration-200 ease-linear" data-carousel-item="active">
+                <img src="Macbook.jpg"
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
+                    alt="Image of a sleek Macbook laptop.">
+            </div>
+
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+                <img src="Logo.jpg"
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
+                    alt="Company logo design.">
+            </div>
+
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+                <img src="Laptop.jpg"
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
+                    alt="Image of a business laptop.">
+            </div>
+
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+                <img src="Studio.jpg"
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
+                    alt="Image of a modern studio setup.">
+            </div>
+
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+                <img src="Room.jpg"
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
+                    alt="Image of a tech-focused room environment.">
+            </div>
+        </div>
+
+        <button type="button"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev>
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 1 1 5l4 4" />
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next>
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 9 4-4-4-4" />
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
+
 
     <!-- SERVICE CARDS -->
     <div class="max-w-6xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
         <!-- CARD ITEMS -->
         <!-- Card 1 -->
-        <div
+        <div data-aos="zoom-in-down"
             class="p-6 bg-white shadow-xl rounded-2xl transition hover:shadow-2xl flex flex-col items-center text-center">
             <div class="p-3 mb-4 bg-indigo-50 rounded-full">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXdyZW5jaC1pY29uIGx1Y2lkZS13cmVuY2giPjxwYXRoIGQ9Ik0xNC43IDYuM2ExIDEgMCAwIDAgMCAxLjRsMS42IDEuNmExIDEgMCAwIDAgMS40IDBsMy4xMDYtMy4xMDVjLjMyLS4zMjIuODYzLS4yMi45ODMuMjE4YTYgNiAwIDAgMS04LjI1OSA3LjA1N2wtNy45MSA3LjkxYTEgMSAwIDAgMS0yLjk5OS0zbDcuOTEtNy45MWE2IDYgMCAwIDEgNy4wNTctOC4yNTljLjQzOC4xMi41NC42NjIuMjE5Ljk4NHoiLz48L3N2Zz4=" alt="">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXdyZW5jaC1pY29uIGx1Y2lkZS13cmVuY2giPjxwYXRoIGQ9Ik0xNC43IDYuM2ExIDEgMCAwIDAgMCAxLjRsMS42IDEuNmExIDEgMCAwIDAgMS40IDBsMy4xMDYtMy4xMDVjLjMyLS4zMjIuODYzLS4yMi45ODMuMjE4YTYgNiAwIDAgMS04LjI1OSA3LjA1N2wtNy45MSA3LjkxYTEgMSAwIDAgMS0yLjk5OS0zbDcuOTEtNy45MWE2IDYgMCAwIDEgNy4wNTctOC4yNTljLjQzOC4xMi41NC42NjIuMjE5Ljk4NHoiLz48L3N2Zz4="
+                    alt="">
             </div>
             <h2 class="text-xl font-bold mb-2">Service</h2>
             <p class="text-gray-500 text-sm mb-6">
@@ -96,10 +158,11 @@
         </div>
 
         <!-- Card 2 -->
-        <div
+        <div data-aos="zoom-in-down"
             class="p-6 bg-white shadow-xl rounded-2xl transition hover:shadow-2xl flex flex-col items-center text-center">
             <div class="p-3 mb-4 bg-indigo-50 rounded-full">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNob3BwaW5nLWNhcnQtaWNvbiBsdWNpZGUtc2hvcHBpbmctY2FydCI+PGNpcmNsZSBjeD0iOCIgY3k9IjIxIiByPSIxIi8+PGNpcmNsZSBjeD0iMTkiIGN5PSIyMSIgcj0iMSIvPjxwYXRoIGQ9Ik0yLjA1IDIuMDVoMmwyLjY2IDEyLjQyYTIgMiAwIDAgMCAyIDEuNThoOS43OGEyIDIgMCAwIDAgMS45NS0xLjU3bDEuNjUtNy40M0g1LjEyIi8+PC9zdmc+" alt="">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNob3BwaW5nLWNhcnQtaWNvbiBsdWNpZGUtc2hvcHBpbmctY2FydCI+PGNpcmNsZSBjeD0iOCIgY3k9IjIxIiByPSIxIi8+PGNpcmNsZSBjeD0iMTkiIGN5PSIyMSIgcj0iMSIvPjxwYXRoIGQ9Ik0yLjA1IDIuMDVoMmwyLjY2IDEyLjQyYTIgMiAwIDAgMCAyIDEuNThoOS43OGEyIDIgMCAwIDAgMS45NS0xLjU3bDEuNjUtNy40M0g1LjEyIi8+PC9zdmc+"
+                    alt="">
             </div>
             <h2 class="text-xl font-bold mb-2">Computer Products</h2>
             <p class="text-gray-500 text-sm mb-6">
@@ -109,10 +172,11 @@
         </div>
 
         <!-- Card 3 -->
-        <div
+        <div data-aos="zoom-in-down"
             class="p-6 bg-white shadow-xl rounded-2xl transition hover:shadow-2xl flex flex-col items-center text-center">
             <div class="p-3 mb-4 bg-indigo-50 rounded-full">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNob3BwaW5nLWJhZy1pY29uIGx1Y2lkZS1zaG9wcGluZy1iYWciPjxwYXRoIGQ9Ik0xNiAxMGE0IDQgMCAwIDEtOCAwIi8+PHBhdGggZD0iTTMuMTAzIDYuMDM0aDE3Ljc5NCIvPjxwYXRoIGQ9Ik0zLjQgNS40NjdhMiAyIDAgMCAwLS40IDEuMlYyMGEyIDIgMCAwIDAgMiAyaDE0YTIgMiAwIDAgMCAyLTJWNi42NjdhMiAyIDAgMCAwLS40LTEuMmwtMi0yLjY2N0EyIDIgMCAwIDAgMTcgMkg3YTIgMiAwIDAgMC0xLjYuOHoiLz48L3N2Zz4=" alt="">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNob3BwaW5nLWJhZy1pY29uIGx1Y2lkZS1zaG9wcGluZy1iYWciPjxwYXRoIGQ9Ik0xNiAxMGE0IDQgMCAwIDEtOCAwIi8+PHBhdGggZD0iTTMuMTAzIDYuMDM0aDE3Ljc5NCIvPjxwYXRoIGQ9Ik0zLjQgNS40NjdhMiAyIDAgMCAwLS40IDEuMlYyMGEyIDIgMCAwIDAgMiAyaDE0YTIgMiAwIDAgMCAyLTJWNi42NjdhMiAyIDAgMCAwLS40LTEuMmwtMi0yLjY2N0EyIDIgMCAwIDAgMTcgMkg3YTIgMiAwIDAgMC0xLjYuOHoiLz48L3N2Zz4="
+                    alt="">
             </div>
             <h2 class="text-xl font-bold mb-2">Accessories</h2>
             <p class="text-gray-500 text-sm mb-6">
@@ -122,10 +186,11 @@
         </div>
 
         <!-- Card 4 -->
-        <div
+        <div data-aos="zoom-in-down"
             class="p-6 bg-white shadow-xl rounded-2xl transition hover:shadow-2xl flex flex-col items-center text-center">
             <div class="p-3 mb-4 bg-indigo-50 rounded-full">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNvZy1pY29uIGx1Y2lkZS1jb2ciPjxwYXRoIGQ9Ik0xMSAxMC4yNyA3IDMuMzQiLz48cGF0aCBkPSJtMTEgMTMuNzMtNCA2LjkzIi8+PHBhdGggZD0iTTEyIDIydi0yIi8+PHBhdGggZD0iTTEyIDJ2MiIvPjxwYXRoIGQ9Ik0xNCAxMmg4Ii8+PHBhdGggZD0ibTE3IDIwLjY2LTEtMS43MyIvPjxwYXRoIGQ9Im0xNyAzLjM0LTEgMS43MyIvPjxwYXRoIGQ9Ik0yIDEyaDIiLz48cGF0aCBkPSJtMjAuNjYgMTctMS43My0xIi8+PHBhdGggZD0ibTIwLjY2IDctMS43MyAxIi8+PHBhdGggZD0ibTMuMzQgMTcgMS43My0xIi8+PHBhdGggZD0ibTMuMzQgNyAxLjczIDEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIi8+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIvPjwvc3ZnPg==" alt="">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNvZy1pY29uIGx1Y2lkZS1jb2ciPjxwYXRoIGQ9Ik0xMSAxMC4yNyA3IDMuMzQiLz48cGF0aCBkPSJtMTEgMTMuNzMtNCA2LjkzIi8+PHBhdGggZD0iTTEyIDIydi0yIi8+PHBhdGggZD0iTTEyIDJ2MiIvPjxwYXRoIGQ9Ik0xNCAxMmg4Ii8+PHBhdGggZD0ibTE3IDIwLjY2LTEtMS43MyIvPjxwYXRoIGQ9Im0xNyAzLjM0LTEgMS43MyIvPjxwYXRoIGQ9Ik0yIDEyaDIiLz48cGF0aCBkPSJtMjAuNjYgMTctMS43My0xIi8+PHBhdGggZD0ibTIwLjY2IDctMS43MyAxIi8+PHBhdGggZD0ibTMuMzQgMTcgMS43My0xIi8+PHBhdGggZD0ibTMuMzQgNyAxLjczIDEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIi8+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIvPjwvc3ZnPg=="
+                    alt="">
             </div>
             <h2 class="text-xl font-bold mb-2">Mobile & Device Services</h2>
             <p class="text-gray-500 text-sm mb-6">
@@ -135,10 +200,10 @@
         </div>
 
     </div>
-    
+
 
     <!-- SECTION: INTRODUCTION -->
-    <section class="max-w-6xl mx-auto mt-10 px-6 flex flex-col md:flex-row items-center gap-8">
+    <section class="max-w-6xl mx-auto mt-10 px-6 flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
 
         <img class="w-[450px] rounded-2xl"
             src="https://oneclicktechnologies.us/wp-content/uploads/2024/09/online-computer-repair-service.png" alt="">
@@ -146,7 +211,8 @@
         <div class="md:w-1/2">
             <h2 class="text-3xl font-bold mb-3">Introduction</h2>
             <p class="text-gray-700 mb-4">
-                Online computer repairs allow technicians to diagnose and fix issues remotely—saving time and eliminating
+                Online computer repairs allow technicians to diagnose and fix issues remotely—saving time and
+                eliminating
                 physical service visits.
             </p>
             <button class="bg-blue-600 text-white px-7 py-4 rounded-2xl">Check Now</button>
@@ -155,7 +221,7 @@
     </section>
 
     <!-- SECTION: OUR SERVICE -->
-    <section class="max-w-6xl mx-auto mt-10 px-6 flex flex-col md:flex-row items-center gap-8">
+    <section class="max-w-6xl mx-auto mt-10 px-6 flex flex-col md:flex-row items-center gap-8" data-aos="fade-left">
 
         <div class="md:w-1/2">
             <h2 class="text-3xl font-bold mb-3">Our Service</h2>
@@ -165,16 +231,16 @@
             <button class="bg-blue-600 text-white px-7 py-4 rounded-2xl">Read More</button>
         </div>
 
-        <img class="w-[350px] rounded-2xl"
-            src="https://i.pinimg.com/736x/e1/ed/22/e1ed229ae6bc09c02bea0f85bce461b4.jpg" alt="">
+        <img class="w-[350px] rounded-2xl" src="https://i.pinimg.com/736x/e1/ed/22/e1ed229ae6bc09c02bea0f85bce461b4.jpg"
+            alt="">
 
     </section>
 
     <!-- SECTION: PRODUCTS -->
-    <section class="max-w-6xl mx-auto mt-10 px-6 flex flex-col md:flex-row items-center gap-8">
+    <section data-aos="fade-up-left" class="max-w-6xl mx-auto mt-10 px-6 flex flex-col md:flex-row items-center gap-8">
 
-        <img class="w-[300px] rounded-2xl"
-            src="https://i.pinimg.com/736x/49/40/6f/49406f1fb7bf3769cb322f3ba2692732.jpg" alt="">
+        <img class="w-[300px] rounded-2xl" src="https://i.pinimg.com/736x/49/40/6f/49406f1fb7bf3769cb322f3ba2692732.jpg"
+            alt="">
 
         <div class="md:w-1/2">
             <h2 class="text-3xl font-bold mb-3">Products Available in Our Shop</h2>
@@ -185,185 +251,201 @@
         </div>
     </section>
     <section class="max-w-7xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-bold text-center mb-6">Computer by Category</h2>
+        <h2 class="text-2xl font-bold text-center mb-6">Computer by Category</h2>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
-            <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=yKWOh2AY4zw8&format=png&color=000000" alt="">
-            <h3 class="mt-3 font-semibold">Laptops</h3>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
+                <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=yKWOh2AY4zw8&format=png&color=000000"
+                    alt="">
+                <h3 class="mt-3 font-semibold">Laptops</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
+                <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=aG4TB01zvAzC&format=png&color=000000"
+                    alt="">
+                <h3 class="mt-3 font-semibold">PC & Components</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
+                <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=WPZvpTLUFPkq&format=png&color=000000"
+                    alt="">
+                <h3 class="mt-3 font-semibold">Accessories</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
+                <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=mVumA5J1g7JZ&format=png&color=000000"
+                    alt="">
+                <h3 class="mt-3 font-semibold">Monitors</h3>
+            </div>
+
         </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
-            <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=aG4TB01zvAzC&format=png&color=000000" alt="">
-            <h3 class="mt-3 font-semibold">PC & Components</h3>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
-            <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=WPZvpTLUFPkq&format=png&color=000000" alt="">
-            <h3 class="mt-3 font-semibold">Accessories</h3>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl duration-300 text-center">
-            <img class="w-16 mx-auto" src="https://img.icons8.com/?size=100&id=mVumA5J1g7JZ&format=png&color=000000" alt="">
-            <h3 class="mt-3 font-semibold">Monitors</h3>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     <!-- MORE FEATURED PRODUCTS -->
-<section class="max-w-7xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold text-center text-black mb-8">
-        Featured Products
-    </h2>
+    <section class="max-w-7xl mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center text-black mb-8">
+            Featured Products
+        </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-        <!-- PRODUCT 1 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://www.asifcomputers.com/wp-content/uploads/2024/02/Legion-Pro-5-16IRX9-7.png"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">Lenovo Legion 5</h3>
-            <p class="text-gray-500 text-sm">Ryzen 7 • RTX 3050 • 16GB RAM</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$1,099</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
+            <!-- PRODUCT 1 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://www.asifcomputers.com/wp-content/uploads/2024/02/Legion-Pro-5-16IRX9-7.png"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">Lenovo Legion 5</h3>
+                <p class="text-gray-500 text-sm">Ryzen 7 • RTX 3050 • 16GB RAM</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$1,099</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
+            <!-- PRODUCT 2 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://www.eworldmagz.com/images/1_mate/XPS/XPS15_.jpg"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">Dell XPS 15</h3>
+                <p class="text-gray-500 text-sm">Core i7 • 32GB RAM • OLED Display</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$2,299</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
+            <!-- PRODUCT 3 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://asset.msi.com/resize/image/global/product/product_1672734501633e5e2445a44bac87ac9167addd009f.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">RTX 4070 Ti GPU</h3>
+                <p class="text-gray-500 text-sm">12GB GDDR6X • High FPS Gaming</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$799</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
+            <!-- PRODUCT 4 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Gaming-Keyboards/CH-9000221-ND/Gallery/CGK95_RGB_NA_001.webp"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">Corsair K95 RGB Keyboard</h3>
+                <p class="text-gray-500 text-sm">Mechanical • RGB • Macro Keys</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$199</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
+            <!-- PRODUCT 5 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/imac-touch-id-orange-selection-hero-202410?wid=986&hei=980&fmt=jpeg&qlt=90&.v=VEV1bTh0OXY2UTFBYzdFZFhSN3VtSG11MzVybDZnMC9BMm1UOGVqTXpWa2hKdGhncm10RHd0YkhlWlRsVmdZaWFnMDZBWmgrdFdyWFJMbHpPVEV4a0lKWlgzZzdyUXEzcGE2bUxYbWVvdHFmbjQwSXIrMUJXRFlidVh2MERxSm0"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">Apple iMac 24"</h3>
+                <p class="text-gray-500 text-sm">Apple M1 • 4.5K Retina Display</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$1,299</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
+            <!-- PRODUCT 6 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://media.very.co.uk/i/very/VN55A_SQ3_0000000004_BLACK_SLa?$pdp_300x400_x2$&fmt=jpg"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">Samsung Curved Monitor</h3>
+                <p class="text-gray-500 text-sm">32" • 144Hz • Curved Display</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$329</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
+            <!-- PRODUCT 7 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://basitcomputers.com/wp-content/uploads/2023/09/VIKING-BLACK-GAMiNG-PC-CASE-WITH-FRONT-RGB-STRIp.webp"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">Gaming PC RGB Tower</h3>
+                <p class="text-gray-500 text-sm">Ryzen 5 • RTX 3060 • 16GB RAM</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$1,199</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
+            <!-- PRODUCT 8 -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
+                <img src="https://store.sony.com.au/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw280eceea/images/WH1000XM5L/WH1000XM5L.png?sw=442&sh=442&sm=fit"
+                    class="w-full h-48 object-cover rounded-lg" alt="">
+                <h3 class="text-lg font-semibold mt-3">Sony WH-1000XM5</h3>
+                <p class="text-gray-500 text-sm">Noise Cancelling • Wireless</p>
+                <p class="text-blue-600 font-bold mt-2 text-lg">$349</p>
+                <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View
+                    Details</button>
+            </div>
+
         </div>
-
-        <!-- PRODUCT 2 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://www.eworldmagz.com/images/1_mate/XPS/XPS15_.jpg"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">Dell XPS 15</h3>
-            <p class="text-gray-500 text-sm">Core i7 • 32GB RAM • OLED Display</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$2,299</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
-        </div>
-
-        <!-- PRODUCT 3 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://asset.msi.com/resize/image/global/product/product_1672734501633e5e2445a44bac87ac9167addd009f.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">RTX 4070 Ti GPU</h3>
-            <p class="text-gray-500 text-sm">12GB GDDR6X • High FPS Gaming</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$799</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
-        </div>
-
-        <!-- PRODUCT 4 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Gaming-Keyboards/CH-9000221-ND/Gallery/CGK95_RGB_NA_001.webp"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">Corsair K95 RGB Keyboard</h3>
-            <p class="text-gray-500 text-sm">Mechanical • RGB • Macro Keys</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$199</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
-        </div>
-
-        <!-- PRODUCT 5 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/imac-touch-id-orange-selection-hero-202410?wid=986&hei=980&fmt=jpeg&qlt=90&.v=VEV1bTh0OXY2UTFBYzdFZFhSN3VtSG11MzVybDZnMC9BMm1UOGVqTXpWa2hKdGhncm10RHd0YkhlWlRsVmdZaWFnMDZBWmgrdFdyWFJMbHpPVEV4a0lKWlgzZzdyUXEzcGE2bUxYbWVvdHFmbjQwSXIrMUJXRFlidVh2MERxSm0"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">Apple iMac 24"</h3>
-            <p class="text-gray-500 text-sm">Apple M1 • 4.5K Retina Display</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$1,299</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
-        </div>
-
-        <!-- PRODUCT 6 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://media.very.co.uk/i/very/VN55A_SQ3_0000000004_BLACK_SLa?$pdp_300x400_x2$&fmt=jpg"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">Samsung Curved Monitor</h3>
-            <p class="text-gray-500 text-sm">32" • 144Hz • Curved Display</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$329</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
-        </div>
-
-        <!-- PRODUCT 7 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://basitcomputers.com/wp-content/uploads/2023/09/VIKING-BLACK-GAMiNG-PC-CASE-WITH-FRONT-RGB-STRIp.webp"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">Gaming PC RGB Tower</h3>
-            <p class="text-gray-500 text-sm">Ryzen 5 • RTX 3060 • 16GB RAM</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$1,199</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
-        </div>
-
-        <!-- PRODUCT 8 -->
-        <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl duration-300 p-4 border border-gray-100">
-            <img src="https://store.sony.com.au/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw280eceea/images/WH1000XM5L/WH1000XM5L.png?sw=442&sh=442&sm=fit"
-                class="w-full h-48 object-cover rounded-lg" alt="">
-            <h3 class="text-lg font-semibold mt-3">Sony WH-1000XM5</h3>
-            <p class="text-gray-500 text-sm">Noise Cancelling • Wireless</p>
-            <p class="text-blue-600 font-bold mt-2 text-lg">$349</p>
-            <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">View Details</button>
-        </div>
-
-    </div>
-</section>
+    </section>
 
 
     <footer class="bg-gray-100 text-gray-200 py-10 mt-10 shadow-2xl shadow-cyan-500/50 border-t border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
 
-        <!-- Logo & Description -->
-        <div>
-            <h2 class="text-2xl font-bold text-black mb-3">SKS TECHNOLOGY</h2>
-            <p class="text-gray-500 text-sm">
-                We provide high-quality computers, laptops, repairs, and IT solutions.
-                Trusted by customers since 2020.
-            </p>
+            <!-- Logo & Description -->
+            <div>
+                <h2 class="text-2xl font-bold text-black mb-3">SKS TECHNOLOGY</h2>
+                <p class="text-gray-500 text-sm">
+                    We provide high-quality computers, laptops, repairs, and IT solutions.
+                    Trusted by customers since 2020.
+                </p>
 
-            <!-- Social Icons -->
-            <div class="flex items-center gap-3 mt-4">
-                <img class="w-8" src="https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=000000" alt="Facebook">
-                <img class="w-8" src="https://img.icons8.com/?size=100&id=118467&format=png&color=000000" alt="Instagram">
-                <img class="w-8" src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="Telegram">
-                <img class="w-8" src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000" alt="YouTube">
+                <!-- Social Icons -->
+                <div class="flex items-center gap-3 mt-4">
+                    <img class="w-8" src="https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=000000"
+                        alt="Facebook">
+                    <img class="w-8" src="https://img.icons8.com/?size=100&id=118467&format=png&color=000000"
+                        alt="Instagram">
+                    <img class="w-8" src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000"
+                        alt="Telegram">
+                    <img class="w-8" src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000"
+                        alt="YouTube">
+                </div>
             </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-semibold text-black mb-3">Quick Links</h3>
+                <ul class="space-y-2 text-gray-500 text-sm">
+                    <li><a href="#" class="hover:text-blue-500">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-500">Products</a></li>
+                    <li><a href="#" class="hover:text-blue-500">About Us</a></li>
+                    <li><a href="#" class="hover:text-blue-500">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h3 class="text-lg font-semibold text-black mb-3">Our Services</h3>
+                <ul class="space-y-2 text-gray-500 text-sm">
+                    <li>Computer Repair</li>
+                    <li>Laptop Repair</li>
+                    <li>Mobile Device Fix</li>
+                    <li>Software Installation</li>
+                    <li>Data Recovery</li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h3 class="text-lg font-semibold text-black mb-3">Contact Us</h3>
+                <ul class="space-y-2 text-gray-500 text-sm">
+                    <li>📍 Phnom Penh, Cambodia</li>
+                    <li>📞 086 33 49 49</li>
+                    <li>📧 kimsak8899@gmail.com</li>
+                </ul>
+            </div>
+
         </div>
 
-        <!-- Quick Links -->
-        <div>
-            <h3 class="text-lg font-semibold text-black mb-3">Quick Links</h3>
-            <ul class="space-y-2 text-gray-500 text-sm">
-                <li><a href="#" class="hover:text-blue-500">Home</a></li>
-                <li><a href="#" class="hover:text-blue-500">Products</a></li>
-                <li><a href="#" class="hover:text-blue-500">About Us</a></li>
-                <li><a href="#" class="hover:text-blue-500">Contact</a></li>
-            </ul>
+        <!-- Bottom -->
+        <div class="border-t border-gray-300 mt-8 pt-4 text-center text-gray-500 text-sm">
+            © SKS TECHNOLOGY. All rights reserved.
         </div>
-
-        <!-- Services -->
-        <div>
-            <h3 class="text-lg font-semibold text-black mb-3">Our Services</h3>
-            <ul class="space-y-2 text-gray-500 text-sm">
-                <li>Computer Repair</li>
-                <li>Laptop Repair</li>
-                <li>Mobile Device Fix</li>
-                <li>Software Installation</li>
-                <li>Data Recovery</li>
-            </ul>
-        </div>
-
-        <!-- Contact -->
-        <div>
-            <h3 class="text-lg font-semibold text-black mb-3">Contact Us</h3>
-            <ul class="space-y-2 text-gray-500 text-sm">
-                <li>📍 Phnom Penh, Cambodia</li>
-                <li>📞 086 33 49 49</li>
-                <li>📧 kimsak8899@gmail.com</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <!-- Bottom -->
-    <div class="border-t border-gray-300 mt-8 pt-4 text-center text-gray-500 text-sm">
-        © SKS TECHNOLOGY. All rights reserved.
-    </div>
-</footer>
+    </footer>
 
 
 
@@ -371,6 +453,13 @@
     <script>
         lucide.createIcons();
     </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
+
 
 </body>
 
